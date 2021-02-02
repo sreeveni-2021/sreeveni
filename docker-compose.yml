@@ -1,0 +1,43 @@
+version: "3.0"
+
+services:
+  payment:
+    image: payment:latest
+    restart: always
+    depends_on:
+      - mongo
+    environment:
+      - APP_PORT=3000
+      - API_KEY=AQElhmfuXNWTK0Qc+iSTnWk3te2VGd8ZiQJRl2EoWy4nAveYLgxV5hDBXVsNvuR83LVYjEgiTGAH-pOMYYRCGDFGQm1UopXm9udx+bQN6ge+f3iNKVdPbWcY=-=h%UHK2M[s+A32@5
+      - MONGODB_URL=MONGODB_URL=mongodb://mongo:27017/payment
+      - MAIL_USERNAME=comorintest@gmail.com
+      - MAIL_PASSWORD=Comorintest@123
+      - MAIL_SMTP=smtp.googlemail.com
+      - MAIL_PORT=587
+  mongo:
+    image: mongo:4.0.5
+    environment:
+      - MONGO_DATA_DIR=/data/db
+      - MONGO_LOG_DIR=/dev/stdout
+    volumes:
+      - payment_data:/data/db
+    command: mongod --logpath=/dev/stdout
+  nginx:
+    image: nginx:1.15-alpine
+    ports:
+      - "80:80"
+      - "443:443"
+    restart: always
+    volumes:
+      - ./proxy/conf.d:/etc/nginx/conf.d
+    command: "/bin/sh -c 'while :; do sleep 6h & wait $${!}; nginx -s reload; done & nginx -g \"daemon off;\"'"
+    depends_on:
+      - payment
+
+
+volumes:
+  payment_data:
+
+
+
+
