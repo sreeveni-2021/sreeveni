@@ -1,9 +1,14 @@
 let config = new Object();
 
 config = {
+  // app: {
+  //   port: process.env.APP_PORT,
+  //   database: process.env.MONGODB_URL,
+  //   apiKey : process.env.API_KEY
+  // },
   app: {
-    port: process.env.APP_PORT,
-    database: process.env.MONGODB_URL,
+    port:5000,
+    database:"mongodb://localhost:27017/node-auth",
     apiKey : process.env.API_KEY
   },
   mail:{

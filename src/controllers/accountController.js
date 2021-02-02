@@ -1,7 +1,7 @@
-const paymentController = new Object();
+const accountController = new Object();
 const appHelper = require("../helpers/appHelper");
 const validator = require('../helpers/validator');
-const accDal = require("../dal/account");
+const accDal = require("../dal/accountDal");
 const mailNotify = require("../notification/emailNotification");
 
 accountController.login = async (req) => {

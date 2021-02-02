@@ -8,3 +8,4 @@ dist
 serviceAccountKey.json
 log
 eq.js
+src/config/config.js
