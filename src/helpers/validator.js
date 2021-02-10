@@ -30,26 +30,35 @@ validator.emailValidator = (input) => {
 
 
 validator.requestPaymentValidator = async (input) =>{
-    if (!validator.genericCheckString(input.userDetails.firstName)) {
-        return { status: false, message: 'First Name is required or invalid type' }
+    if (!validator.genericCheckString(input.userDetails.Name)) {
+        return { status: false, message: 'Name is required or invalid type' }
     }
-    if (!validator.genericCheckString(input.userDetails.lastName)) {
-        return { status: false, message: 'Last Name is required or invalid type' }
+    if (!validator.genericCheckString(input.userDetails.Age)) {
+        return { status: false, message: 'Age is required or invalid type' }
     }
-    if (!validator.genericCheckString(input.userDetails.phoneCode)) {
-        return { status: false, message: 'Phone Code is required or invalid type' }
+    if (!validator.genericCheckString(input.userDetails.Gender)) {
+        return { status: false, message: 'Gender is required or invalid type' }
     }
-    if (!validator.genericCheckString(input.userDetails.phoneNumber)) {
+    if (!validator.genericCheckString(input.userDetails.Qualification)) {
+        return { status: false, message: 'Qualification is required or invalid type' }
+    }
+    if (!validator.genericCheckString(input.userDetails.PhoneNumber)) {
         return { status: false, message: 'Phone Number is required or invalid type' }
     }
-    if (!validator.emailValidator(input.userDetails.email)) {
+    if (!validator.emailValidator(input.userDetails.Email)) {
         return { status: false, message: 'Email is required or invalid type' }
     }
-    if (!validator.genericCheckString(input.paymentDetails.tripName)) {
-        return { status: false, message: 'Trip Name is required or invalid type' }
+    if (!validator.genericCheckString(input.paymentDetails.Password)) {
+        return { status: false, message: 'Password is required or invalid type' }
     }
-    if (!validator.genericCheckNumber(input.paymentDetails.amount)) {
-        return { status: false, message: 'amount is required or invalid type' }
+    if (!validator.genericCheckNumber(input.paymentDetails.Nationality)) {
+        return { status: false, message: 'Password is required or invalid type' }
+    }
+    if (!validator.genericCheckNumber(input.paymentDetails.Address)) {
+        return { status: false, message: 'Address is required or invalid type' }
+    }
+    if (!validator.genericCheckNumber(input.paymentDetails.Postalcode)) {
+        return { status: false, message: 'postalcode is required or invalid type' }
     }
     return { status: true, message: 'All validation passed' }
 }

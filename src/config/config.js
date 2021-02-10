@@ -8,7 +8,7 @@ config = {
   // },
   app: {
     port:5000,
-    database:"mongodb://localhost:27017/node-auth",
+    database:"mongodb://localhost:27017/vithya",
     apiKey : process.env.API_KEY
   },
   mail:{

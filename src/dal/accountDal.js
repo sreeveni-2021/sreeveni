@@ -11,7 +11,9 @@ customerDal.saveUser = async (data) => {
       return { status: true, data: result };
     }
     return { status: false, data: result }
-  } catch (error) {
+  } 
+  catch (error) 
+  {
     console.log("failed to save Users", error);
     return { status: false, data: error.message ? error.message : error }
   }
